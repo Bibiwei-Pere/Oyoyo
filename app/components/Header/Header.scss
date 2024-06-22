@@ -1,0 +1,132 @@
+@import "../styles/variables.scss";
+@import "../styles/responsive.scss";
+
+.header {
+	position: relative;
+	z-index: 1000;
+	position: fixed;
+	top: 25px;
+	right: 50px;
+	left: 50px;
+	@include lg {
+		top: 0;
+		right: 0;
+		left: 0;
+	}
+	&.scroll {
+		top: 0;
+		max-width: 100%;
+		right: 0;
+		left: 0;
+		background-color: $white;
+		padding: 10px 0;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		.container {
+			padding: 10px 33px 0px;
+
+			.navContent {
+				a {
+					color: $black;
+				}
+			}
+		}
+		.hamburger {
+			g {
+				fill: $black !important;
+			}
+		}
+	}
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: transparent;
+		max-width: 1130px;
+		padding: 20px 33px;
+		margin: auto;
+
+		.logo {
+			z-index: 10;
+			img {
+				width: 50px;
+				height: 50px;
+				color: $black !important;
+			}
+		}
+
+		.navContent {
+			display: flex;
+			gap: 35px;
+
+			a {
+				color: $white;
+			}
+		}
+		.getInTouch {
+			background: $dark_red;
+			padding: 12px 30px;
+			color: $white;
+			border-radius: 5px;
+		}
+
+		// MOBILE MENU
+		.mobileMenu {
+			display: none;
+		}
+
+		@include lg {
+			// padding: 25px;
+			.navContent,
+			.getInTouch {
+				display: none;
+			}
+
+			.mobileMenu {
+				display: flex;
+				.close {
+					cursor: pointer;
+					display: none;
+				}
+				.hamburger {
+					cursor: pointer;
+				}
+				&.active {
+					display: flex;
+					.close {
+						display: flex;
+						z-index: 10;
+					}
+					.hamburger {
+						display: none;
+					}
+					.navContent {
+						display: flex;
+						background: $black;
+						flex-direction: column;
+						position: fixed;
+						top: 0;
+						left: 0;
+						right: 0;
+						gap: 0;
+						padding-top: 100px;
+
+						a {
+							cursor: pointer;
+							border-top: 1px solid $light;
+							padding: 25px 30px;
+							color: $white !important;
+						}
+
+						.getInTouchMobile {
+							font-weight: bold;
+							background: $dark_red;
+							margin: 30px;
+							padding: 15px;
+							text-align: center;
+						}
+					}
+				}
+			}
+		}
+	}
+}
